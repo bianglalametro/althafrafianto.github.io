@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Introduction</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #0d0c22;
+            color: white;
+            padding: 40px 0;
+            position: relative;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-text {
+            flex: 1;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .subtitle {
+            font-size: 24px;
+            opacity: 0.8;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #0066ff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #0052cc;
+        }
+        .section {
+            padding: 10px 0;
+        }
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .card:hover {
+            background-color: #e0e0e0;
+        }
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .profile-picture {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 10px;
+        }
+
+        @media screen and (max-width:767px){
+            .profile-picture{
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-left: 10px;
+            }
+
+            h1 {
+                font-size: 38px;
+                margin-bottom: 10px;
+            }
+            .subtitle {
+                font-size: 15px;
+                opacity: 0.8;
+            }
+        }
+
+        .hamburger {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1001;
+            background-color: #0d0c22;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.4s;
+        }
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: #0d0c22;
+            padding: 80px 20px 50px;
+            transition: 0.4s ease-in-out;
+            z-index: 1000;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        }
+        .menu.active {
+            right: 0;
+        }
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .menu ul li {
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: 0.4s ease-in-out;
+        }
+        .menu.active ul li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .menu ul li a:hover {
+            color: #0066ff;
+        }
+        .social-links {
+            margin-top: 45px;
+        }
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            margin-right: 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            color: #0066ff;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="header-text">
+                <h1>Althaf Rafianto</h1>
+                <p class="subtitle">Aspiring Computer Scientist Undergrad @ IPB University.</p>
+                <a href="#contact" class="cta-button">Get in touch</a>
+            </div>
+            <img src="/img/M%20Althaf%20Faiz%20Rafianto.jpg" alt="John Doe" class="profile-picture">
+        </div>
+    </div>
+</header>
+
+<div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<nav class="menu">
+    <ul>
+        <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
+        <li><a href="#skills" onclick="toggleMenu()">My Skills</a></li>
+        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+    <div class="social-links">
+        <a href="https://instagram.com/althafrafianto" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/althafrafianto" target="_blank">LinkedIn</a>
+        <a href="https://github.com/althafrafianto" target="_blank">GitHub</a>
+    </div>
+</nav>
+
+<main>
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>A highly motivated and ambitious computer science student with a passion for designing and developing innovative
+                technologies. A fast and communicative learner who actively seeks out challenges and opportunities to further
+                knowledge beyond human-computer interaction. Highly motivated to stay up to date on the latest advancements
+                in this rapidly evolving field.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Future Skills I Wish to Have :p</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Front-end Development</h3>
+                    <p>HTML5, CSS3, JavaScript, React</p>
+                </div>
+                <div class="card">
+                    <h3>Back-end Development</h3>
+                    <p>Node.js, Express, Python, Django</p>
+                </div>
+                <div class="card">
+                    <h3>UI/UX Design</h3>
+                    <p>Figma, Adobe XD, Sketch</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Get in Touch!</h2>
+            <p>Hit me up through my email and socials!</p>
+            <a href="mailto:althafrafianto@apps.ipb.ac.id" class="cta-button">Email Me</a>
+        </div>
+    </section>
+</main>
+
+<script>
+    function toggleMenu() {
+        document.querySelector('.hamburger').classList.toggle('active');
+        document.querySelector('.menu').classList.toggle('active');
+    }
+</script>
+</body>
+</html>
